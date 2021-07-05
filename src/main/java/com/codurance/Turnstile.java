@@ -1,12 +1,12 @@
 package com.codurance;
 
-public class Turnstyle {
+public class Turnstile {
   private boolean isLocked;
   private int ticketPrice;
   private int headCount;
   private int change;
 
-  public Turnstyle(int ticketPrice) {
+  public Turnstile(int ticketPrice) {
     isLocked = true;
     this.ticketPrice = ticketPrice;
     this.headCount = 0;

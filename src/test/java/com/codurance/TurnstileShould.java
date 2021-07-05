@@ -9,55 +9,55 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class TurnstyleShould {
+public class TurnstileShould {
 
-  private Turnstyle turnstyle;
+  private Turnstile turnstile;
 
   @BeforeEach
   void setUp() {
-    turnstyle = new Turnstyle(5);
+    turnstile = new Turnstile(5);
   }
 
   @Test
   void be_locked() {
-    assertTrue(turnstyle.isLocked());
+    assertTrue(turnstile.isLocked());
   }
 
   @Test
   void insert_coin_shouldUnlock() {
     int coin = 5;
-    turnstyle.insert(coin);
+    turnstile.insert(coin);
 
-    assertFalse(turnstyle.isLocked());
+    assertFalse(turnstile.isLocked());
   }
 
   @Test
   void insert_twoCoins_shouldBeLocked() {
     int coin = 5;
-    turnstyle.insert(coin);
-    turnstyle.insert(coin);
+    turnstile.insert(coin);
+    turnstile.insert(coin);
 
-    assertFalse(turnstyle.isLocked());
+    assertFalse(turnstile.isLocked());
   }
 
   @Test
   void lock_whenPassThrough() {
     int coin = 5;
-    turnstyle.insert(coin);
+    turnstile.insert(coin);
 
-    turnstyle.pass();
+    turnstile.pass();
 
-    assertTrue(turnstyle.isLocked());
+    assertTrue(turnstile.isLocked());
   }
 
   @Test
   void unlock_whenInsertCoin_AfterSomeoneElsePassed() {
     int coin = 5;
-    turnstyle.insert(coin);
-    turnstyle.pass();
+    turnstile.insert(coin);
+    turnstile.pass();
 
-    turnstyle.insert(coin);
-    assertFalse(turnstyle.isLocked());
+    turnstile.insert(coin);
+    assertFalse(turnstile.isLocked());
   }
 
   @Test
@@ -65,38 +65,38 @@ public class TurnstyleShould {
     int coin = 4;
 
     assertThrows(IllegalArgumentException.class, () -> {
-      turnstyle.insert(coin);
+      turnstile.insert(coin);
     });
   }
 
   @Test
   void raiseError_whenPass_withoutCoin() {
     assertThrows(IllegalStateException.class, () -> {
-      turnstyle.pass();
+      turnstile.pass();
     });
   }
 
   @Test
   void start_withZeroCount() {
-    assertThat(turnstyle.getHeadCount()).isEqualTo(0);
+    assertThat(turnstile.getHeadCount()).isEqualTo(0);
   }
 
   @Test
   void count_TwoPeoplePassingThrough() {
     int coin = 5;
-    turnstyle.insert(5);
-    turnstyle.pass();
-    turnstyle.insert(5);
-    turnstyle.pass();
+    turnstile.insert(5);
+    turnstile.pass();
+    turnstile.insert(5);
+    turnstile.pass();
 
-    assertThat(turnstyle.getHeadCount()).isEqualTo(2);
+    assertThat(turnstile.getHeadCount()).isEqualTo(2);
   }
 
   @Test
   void giveChange_whenPutTooMuchMoney() {
     int coin = 6;
-    turnstyle.insert(coin);
-    final int change = turnstyle.getChange();
+    turnstile.insert(coin);
+    final int change = turnstile.getChange();
 
     assertThat(change).isEqualTo(1);
   }
