@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.codurance.TurnstyleShould" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-07-05T16:55:17" hostname="Toms-MacBook-Pro-2.local" time="0.023">
+  <properties/>
+  <testcase name="insert_coin_shouldUnlock()" classname="com.codurance.TurnstyleShould" time="0.021"/>
+  <testcase name="be_locked()" classname="com.codurance.TurnstyleShould" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
