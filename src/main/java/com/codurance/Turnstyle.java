@@ -14,4 +14,11 @@ public class Turnstyle {
   public void insert(int coin) {
     isLocked = false;
   }
+
+  public void pass() {
+    if (isLocked) {
+      throw new IllegalStateException();
+    }
+    isLocked = true;
+  }
 }
