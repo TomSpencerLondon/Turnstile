@@ -91,4 +91,13 @@ public class TurnstyleShould {
 
     assertThat(turnstyle.getHeadCount()).isEqualTo(2);
   }
+
+  @Test
+  void giveChange_whenPutTooMuchMoney() {
+    int coin = 6;
+    turnstyle.insert(coin);
+    final int change = turnstyle.getChange();
+
+    assertThat(change).isEqualTo(1);
+  }
 }
